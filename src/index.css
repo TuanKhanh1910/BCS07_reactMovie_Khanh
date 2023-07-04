@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.body {
+  background-image: url(https://p.w3layouts.com/demos_new/template_demo/23-03-2018/movie_seat_selection-demo_Free/759053290/web/images/banner.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+h1 {
+  text-align: center;
+  background: linear-gradient(to left, #fa709a, #fee140);
+  background-clip: text;
+  color: transparent;
+  padding: 30px 0;
+}
+.movie {
+  width: 700px;
+  margin: 0 21vw;
+  background: rgba(128, 128, 128, 0.34);
+  padding: 3.5vw;
+}
+.movie h2 {
+  color: #fa709a;
+  text-transform: capitalize;
+  margin-bottom: 25px;
+
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+}
+.movie form {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+.movie form p {
+  color: #fee140;
+  font-size: 17px;
+}
+.movie form input {
+  padding: 10px;
+  /* background: transparent; */
+  border: 1px solid #888686;
+}
+.movie .btnDatVe button {
+  border: none;
+  padding: 8px 20px;
+  background: linear-gradient(to left, #fa709a, #fee140);
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 20px;
+  color: black;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 212px;
+}
+.cinema-note {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+.cinema-note .single {
+  background-image: url(../public/image/single-chair.png);
+  background-repeat: no-repeat;
+  background-position: left top;
+  padding-left: 50px;
+}
+.cinema-note .choosing {
+  background-image: url(../public/image/single-chair.png);
+  background-repeat: no-repeat;
+  background-position: left -46px;
+  padding-left: 50px;
+}
+.cinema-note .busy {
+  background-image: url(../public/image/single-chair.png);
+  background-repeat: no-repeat;
+  background-position: left -92px;
+  padding-left: 50px;
+}
+.cinema-note li {
+  list-style: none;
+  color: #fee140;
+  font-size: 20px;
+  display: inline-block;
+  line-height: 46px;
+}
+.seatStructure table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: grey;
+  margin-left: 400px;
+  margin-top: 40px;
+}
+.seatStructure td {
+  width: 60px;
+  font-weight: 600;
+  font-size: 1em;
+  padding-top: 7px;
+  height: 24px;
+  color: #fff;
+}
+.seatStructure .single {
+  background-image: url(../public/image/single-chair.png);
+  background-repeat: no-repeat;
+  background-position: left top;
+
+  width: 43px;
+  height: 46px;
+  position: relative;
+  left: -15px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.seatStructure .single:hover {
+  background-image: url(../public/image/single-chair.png);
+  background-repeat: no-repeat;
+  background-position: left -46px;
+}
+.seatStructure .single .seat {
+  position: absolute;
+  top: 7px;
+  left: 12px;
+  font-size: 14px;
+}
+.screen {
+  display: inline-block;
+  margin-left: 450px;
+  margin-top: 50px;
+}
+.wthree {
+  font-size: 24px;
+  color: #fee140;
+  display: block;
+  background-color: #969696;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  line-height: 42px;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 5px 300px;
+}
+.buyTicket {
+  margin-top: 40px;
+}
+.buyTicket .goToHome {
+  text-decoration: none;
+  color: #fff;
+  margin-left: 450px;
+  border: none;
+  padding: 10px 30px;
+  background-color: #fee140;
+  border-radius: 30px 30px 30px 0px;
+  transition: all 0.5s;
+}
+.buyTicket .goToHome:hover {
+  background-color: #fa709a;
+}
+.buyTicket .goToBuy {
+  text-decoration: none;
+  color: #fff;
+  margin-left: 450px;
+  border: none;
+  padding: 10px 30px;
+  background-color: #fee140;
+  border-radius: 30px 0px 30px 30px;
+  transition: all 0.5s;
+}
+.buyTicket .goToBuy:hover {
+  background-color: #fa709a;
+}
+.final-confirm {
+  text-align: center;
+  font-size: 22px;
+  line-height: 1.2;
+  background: linear-gradient(to left, #fa709a, #fee140);
+  background-clip: text;
+  color: transparent;
+  font-style: italic;
+  padding: 30px 0;
+}
+.Displaytable td {
+  padding: 7px 10px;
+  color: #fff;
+  font-weight: 600;
+}
