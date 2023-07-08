@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* outline: 1px solid red; */
 }
 .body {
   background-image: url(https://p.w3layouts.com/demos_new/template_demo/23-03-2018/movie_seat_selection-demo_Free/759053290/web/images/banner.jpg);
@@ -34,21 +35,29 @@ h1 {
   line-height: 1.7;
 }
 .movie form {
-  display: flex;
-  gap: 30px;
-  justify-content: space-between;
-  margin: 30px 0;
+  width: 100%;
+}
+.movie .inputForm {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.movie form .col-6 {
+  padding: 0;
 }
 .movie form p {
   color: #fee140;
   font-size: 17px;
+  text-align: center;
 }
 .movie form input {
+  display: block;
   padding: 10px;
   /* background: transparent; */
   border: 1px solid #888686;
+  margin: 0 auto;
 }
-.movie .btnDatVe button {
+.movie .btnDatVe {
   border: none;
   padding: 8px 20px;
   background: linear-gradient(to left, #fa709a, #fee140);
@@ -83,6 +92,7 @@ h1 {
   background-position: left -92px;
   padding-left: 50px;
 }
+
 .cinema-note li {
   list-style: none;
   color: #fee140;
@@ -106,7 +116,9 @@ h1 {
   height: 24px;
   color: #fff;
 }
-.seatStructure .single {
+.seatStructure .single,
+.seatStructure .singleGreen,
+.seatStructure .singleBlue {
   background-image: url(../public/image/single-chair.png);
   background-repeat: no-repeat;
   background-position: left top;
@@ -118,17 +130,26 @@ h1 {
   cursor: pointer;
   transition: all 0.5s;
 }
+.seatStructure .singleBlue {
+  background-position: left -46px;
+}
+.seatStructure .singleGreen {
+  background-position: left -92px;
+}
 .seatStructure .single:hover {
   background-image: url(../public/image/single-chair.png);
   background-repeat: no-repeat;
   background-position: left -46px;
 }
-.seatStructure .single .seat {
+.seatStructure .single .seat,
+.seatStructure .singleGreen .pickedSeat,
+.seatStructure .singleBlue .choosingSeat {
   position: absolute;
   top: 7px;
   left: 12px;
   font-size: 14px;
 }
+
 .screen {
   display: inline-block;
   margin-left: 450px;

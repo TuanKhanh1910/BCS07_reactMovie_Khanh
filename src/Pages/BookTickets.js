@@ -1,10 +1,28 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-
+import TicketsDetail from "./TicketsDetail";
+import data from "./data.json";
 class BookTickets extends Component {
+  state = {
+    soGheDangChon: 0,
+    arrSoLuongGheDaChon: [],
+    arrThanhToan: [],
+  };
+  btnThanhToan = () => {
+    let newArThanhToan = this.state.arrThanhToan;
+
+    newArThanhToan.push(this.props.tickets);
+    this.setState({
+      ...this.state,
+      arrThanhToan: newArThanhToan,
+    });
+    this.props.showThongTin(this.state.arrThanhToan);
+  };
   render() {
     console.log(this.props);
+    console.log(this.state.arrThanhToan);
+    // console.log("soGheDangChon", this.state.soGheDangChon);
     return (
       <div>
         <h1>CineStar CyberMovie</h1>
@@ -35,16 +53,26 @@ class BookTickets extends Component {
                 <td>11</td>
                 <td>12</td>
               </tr>
-              {this.props.tickets.arrSoGhe.map((item, index) => {
+              {data.map((item, index) => {
                 return (
                   <tr key={index}>
                     <td>{item.hang}</td>
-                    {item.danhSachGhe.map((item1, index1) => {
+                    {item.danhSachGhe?.map((item1, index1) => {
                       return (
-                        <td key={index1}>
-                          <div className="single">
-                            <div className="seat">{item1.soGhe}</div>
-                          </div>
+                        <td
+                          key={index1}
+                          onClick={() => {
+                            // nó sẽ + 1 khi người dùng click vào ghế
+                            this.setState({
+                              soGheDangChon: this.state.soGheDangChon + 1,
+                            });
+                          }}
+                        >
+                          <TicketsDetail
+                            newSeatArr={this.state.arrSoLuongGheDaChon}
+                            checkTicket={this.state.soGheDangChon}
+                            item={item1}
+                          />
                         </td>
                       );
                     })}
@@ -61,7 +89,11 @@ class BookTickets extends Component {
           <NavLink className="goToHome" to="/">
             Quay lại
           </NavLink>
-          <NavLink className="goToBuy" to="/buyticket">
+          <NavLink
+            onClick={this.btnThanhToan}
+            className="goToBuy"
+            to="/buyticket"
+          >
             Thanh Toán
           </NavLink>
         </div>
@@ -75,4 +107,16 @@ const mapStatetoProps = (state) => {
     tickets: state.product,
   };
 };
-export default connect(mapStatetoProps)(BookTickets);
+const mapDispatchtoProps = (dispatch) => {
+  return {
+    showThongTin: (item) => {
+      const action = {
+        type: "SHOWINFO",
+        payload: item,
+      };
+      // console.log("action: ", action);
+      dispatch(action);
+    },
+  };
+};
+export default connect(mapStatetoProps, mapDispatchtoProps)(BookTickets);

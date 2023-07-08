@@ -42,8 +42,8 @@ const initialState = {
         { soGhe: "C3", gia: 75000, daDat: false },
         { soGhe: "C4", gia: 75000, daDat: false },
         { soGhe: "C5", gia: 75000, daDat: false },
-        { soGhe: "C6", gia: 75000, daDat: false },
-        { soGhe: "C7", gia: 75000, daDat: false },
+        { soGhe: "C6", gia: 75000, daDat: true },
+        { soGhe: "C7", gia: 75000, daDat: true },
         { soGhe: "C8", gia: 75000, daDat: false },
         { soGhe: "C9", gia: 75000, daDat: false },
         { soGhe: "C10", gia: 75000, daDat: false },
@@ -54,7 +54,7 @@ const initialState = {
     {
       hang: "D",
       danhSachGhe: [
-        { soGhe: "D1", gia: 75000, daDat: false },
+        { soGhe: "D1", gia: 75000, daDat: true },
         { soGhe: "D2", gia: 75000, daDat: false },
         { soGhe: "D3", gia: 75000, daDat: false },
         { soGhe: "D4", gia: 75000, daDat: false },
@@ -171,7 +171,47 @@ const initialState = {
       ],
     },
   ],
+  chiTietGhe: {
+    tenDaDat: "",
+    soLuongGheDaChon: 0,
+  },
+  arrGheDaChon: [],
+  arrInfoUser: [],
 };
-export const productReducer = (state = initialState, action) => {
-  return state;
+export default (state = initialState, action) => {
+  // console.log("state: ", state);
+  // console.log("action: ", action);
+  switch (action.type) {
+    case "DATGHE": {
+      // phai de logic set state o tai day ( reducer).
+      let newState = { ...state.chiTietGhe };
+      newState.chiTietGhe = action.payload;
+      // console.log("action.payload: ", action.payload);
+      return { ...state, chiTietGhe: newState.chiTietGhe };
+    }
+    case "CANCLEGHE": {
+      let index = state.arrGheDaChon.findIndex(
+        (ghe) => ghe.soGhe === action.payload.soGhe
+      );
+      let newState = [...state.arrGheDaChon];
+      if (index !== -1) {
+        newState.splice(index, 1);
+      } else {
+        newState.push({ ...action.payload });
+      }
+      // console.log("newState: ", newState);
+      // newState = action.payload;
+      // console.log("newState.arrGheDaChon: ", newState.arrGheDaChon);
+      return { ...state, arrGheDaChon: newState };
+      // console.log("action.payload: ", action.payload);
+    }
+    case "SHOWINFO": {
+      let newArr = [...state.arrInfoUser];
+      newArr.arrInfoUser = action.payload;
+      console.log("action.payload: ", action.payload);
+      return { ...state, arrInfoUser: newArr.arrInfoUser };
+    }
+    default:
+      return { ...state };
+  }
 };
