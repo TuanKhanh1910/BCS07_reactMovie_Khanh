@@ -57,7 +57,8 @@ h1 {
   border: 1px solid #888686;
   margin: 0 auto;
 }
-.movie .btnDatVe {
+.movie .btnDatVe,
+.backtohome {
   border: none;
   padding: 8px 20px;
   background: linear-gradient(to left, #fa709a, #fee140);
@@ -211,4 +212,8 @@ h1 {
   padding: 7px 10px;
   color: #fff;
   font-weight: 600;
+}
+.backtohome {
+  margin-left: 480px;
+  margin-top: 100px;
 }

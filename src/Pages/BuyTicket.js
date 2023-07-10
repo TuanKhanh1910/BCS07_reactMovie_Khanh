@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 class BuyTicket extends Component {
   // state = {
@@ -66,6 +67,9 @@ class BuyTicket extends Component {
               })}
             </tbody>
           </table>
+          <NavLink to="/">
+            <button className="backtohome ">Quay về trang chủ</button>
+          </NavLink>
         </div>
       </div>
     );

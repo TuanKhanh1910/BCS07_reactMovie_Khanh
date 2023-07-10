@@ -89,13 +89,16 @@ class BookTickets extends Component {
           <NavLink className="goToHome" to="/">
             Quay lại
           </NavLink>
-          <NavLink
-            onClick={this.btnThanhToan}
-            className="goToBuy"
-            to="/buyticket"
-          >
-            Thanh Toán
-          </NavLink>
+          {this.props.arrGheDaChon.length ==
+            this.props.tickets.chiTietGhe.soLuongGheDaChon && (
+            <NavLink
+              onClick={this.btnThanhToan}
+              className="goToBuy"
+              to="/buyticket"
+            >
+              Thanh Toán
+            </NavLink>
+          )}
         </div>
       </div>
     );
@@ -105,6 +108,7 @@ class BookTickets extends Component {
 const mapStatetoProps = (state) => {
   return {
     tickets: state.product,
+    arrGheDaChon: state.product.arrGheDaChon,
   };
 };
 const mapDispatchtoProps = (dispatch) => {
